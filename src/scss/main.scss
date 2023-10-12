@@ -15,14 +15,14 @@ STYLES GUIDE
 
 $opacity: .3;
 $emphasis-color: #1d6429;
-$emphasis-text-color: #ffffff;
+$emphasis-text-color: $emphasis-color;
 $secondary-color: #fdda0e;
 $background-color: #ffffff;
 $background-opaque-color: #dbdbdb;
 $text-color-1: #000000;
 $text-color-2: #ffffff;
 $text-color-3: #4e4e4e; 
-$background-url: "https://funcoadee.org/wp-content/uploads/2023/06/FONDO_VERDE-PNG.png";
+$background-url: "../images/wallpaper.png";
 
 /* 1. RESET */
 *,
@@ -156,6 +156,7 @@ header {
 .container {
   margin: 24px;
   padding: 8px;
+  background-color: $background-color;
   * {
     color: $emphasis-text-color;
   }
@@ -222,6 +223,19 @@ header .header-brand {
 }
 
 /* 5. PARTS OF WEB */
+.hamburguer {
+  background-color: inherit;
+  margin: 16px;
+  float: right;
+  border: 1px solid $background-opaque-color;
+  padding: 10px;
+  display: none;
+}
+
+.hamburguer:hover {
+  cursor: pointer;
+}
+
 .nav-menu {
   margin: auto;
 }
@@ -257,7 +271,7 @@ header .header-brand {
   width: 100%;
 }
 
-/* 5. ANIMATIONS */
+/* 6. ANIMATIONS */
 .nav-menu li::before {
   content: "";
   position: absolute;
@@ -270,4 +284,43 @@ header .header-brand {
 
 .nav-menu li a {
   transition: all .3s ease;
+}
+
+/* 7. MEDIA STYLES */
+@media screen and (max-width: 950px) {
+  .navigation {
+    display: block;
+  }
+  
+  .nav-menu.active {
+    display: block;
+  }
+
+  .nav-menu {
+    width: 100%;
+    margin-top: 25px;
+    display: none;
+    transition: all 1s ease;
+  }
+
+  .nav-menu li {
+    margin: 12px auto;
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border-bottom: 1px solid $background-opaque-color;
+  }
+
+  .nav-menu li::before {
+    bottom: -4px;
+    left: -1px;
+  }
+
+  .nav {
+    display: block;
+  }
+
+  .hamburguer {
+    display: block;
+  }
 }
